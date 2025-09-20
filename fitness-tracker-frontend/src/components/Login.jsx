@@ -31,7 +31,11 @@ const Login = ({ setIsLoggedIn }) => {
     <div className="auth-container">
       <div className="auth-box">
         <h2>Login</h2>
-        {message && <div className="success-message">{message}</div>}
+        {message && (
+          <div className={`message ${message.includes('successful') ? 'success' : 'error'}`}>
+            {message}
+          </div>
+        )}
         <form onSubmit={handleLogin}>
           <div className="input-group">
             <label>Email</label>

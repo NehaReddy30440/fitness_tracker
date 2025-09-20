@@ -60,7 +60,7 @@ function App() {
             isLoggedIn ? <Navigate to="/dashboard" replace /> : <Login setIsLoggedIn={setIsLoggedIn} />
           }
         />
-        <Route path="/register" element={<Register />} />
+        <Route path="/register" element={<Register setIsLoggedIn={setIsLoggedIn} />} />
         <Route
           path="/dashboard/*"
           element={
