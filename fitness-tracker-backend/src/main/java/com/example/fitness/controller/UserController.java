@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:5174")
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
@@ -39,5 +39,48 @@ public class UserController {
         }
 
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials!");
+    }
+
+    @GetMapping("/profile/{email}")
+    public ResponseEntity<User> getUserProfile(@PathVariable String email) {
+        System.out.println("Profile request for email: " + email);
+        User user = userRepository.findByEmail(email);
+        System.out.println("User found: " + (user != null ? user.getEmail() : "null"));
+        if (user != null) {
+            // Remove sensitive information and relationships
+            user.setPassword(null);
+            user.setWorkoutLogs(null);
+            user.setGoals(null);
+            return ResponseEntity.ok(user);
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+    @PutMapping("/profile/{email}")
+    public ResponseEntity<String> updateUserProfile(@PathVariable String email, @RequestBody User profileUpdate) {
+        User user = userRepository.findByEmail(email);
+        if (user == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        // Update only profile fields, not sensitive data
+        if (profileUpdate.getName() != null) {
+            user.setName(profileUpdate.getName());
+        }
+        if (profileUpdate.getAge() > 0) {
+            user.setAge(profileUpdate.getAge());
+        }
+        if (profileUpdate.getGender() != null) {
+            user.setGender(profileUpdate.getGender());
+        }
+        if (profileUpdate.getWeight() > 0) {
+            user.setWeight(profileUpdate.getWeight());
+        }
+        if (profileUpdate.getHeight() > 0) {
+            user.setHeight(profileUpdate.getHeight());
+        }
+
+        userRepository.save(user);
+        return ResponseEntity.ok("Profile updated successfully!");
     }
 }

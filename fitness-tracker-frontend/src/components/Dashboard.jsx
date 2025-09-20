@@ -205,23 +205,35 @@
 
 // new updated
 import React, { useState, useEffect } from "react";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import "./Dashboard.css";
 import CalorieCalculator from "./CalorieCalculator";
 import StepsCalculator from "./StepsCalculator";
 import WorkoutLogger from "./WorkoutLogger";
 import WeeklyProgressChart from "./WeeklyProgressChart";
-import axios from "axios";
+import WorkoutHistory from "./WorkoutHistory";
+import GoalSetter from "./GoalSetter";
+import UserProfile from "./UserProfile";
+import api from "../api";
 
 const Dashboard = () => {
-  const [activeTab, setActiveTab] = useState("chart");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [activeTab, setActiveTab] = useState(searchParams.get("tab") || "chart");
   const [workoutLogs, setWorkoutLogs] = useState([]);
+  const navigate = useNavigate();
   const userEmail = localStorage.getItem("userEmail");
+
+  // Check authentication on component mount
+  useEffect(() => {
+    if (!userEmail) {
+      navigate("/login");
+      return;
+    }
+  }, [userEmail, navigate]);
 
   const fetchWorkoutLogs = async () => {
     try {
-      const response = await axios.get(
-        `http://localhost:8080/api/workouts/${userEmail}`
-      );
+      const response = await api.get(`/workouts/${userEmail}`);
       setWorkoutLogs(response.data);
     } catch (error) {
       console.error("Error fetching workout logs:", error);
@@ -234,17 +246,28 @@ const Dashboard = () => {
     }
   }, [userEmail]);
 
+  // Handle URL parameter changes
+  useEffect(() => {
+    const tabParam = searchParams.get("tab");
+    if (tabParam && tabParam !== activeTab) {
+      setActiveTab(tabParam);
+    }
+  }, [searchParams, activeTab]);
+
+  // Update URL when tab changes
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+    setSearchParams({ tab });
+  };
+
   const handleAddWorkout = async (workout) => {
     try {
-      const response = await axios.post(
-        `http://localhost:8080/api/workouts/${userEmail}`,
-        {
-          ...workout,
-          duration: parseInt(workout.duration),
-          calories: parseInt(workout.calories),
-          date: workout.date,
-        }
-      );
+      const response = await api.post(`/workouts/${userEmail}`, {
+        ...workout,
+        duration: parseInt(workout.duration),
+        calories: parseInt(workout.calories),
+        date: workout.date,
+      });
       fetchWorkoutLogs();
     } catch (error) {
       console.error("Error saving workout:", error);
@@ -254,36 +277,48 @@ const Dashboard = () => {
   return (
     <div className="dashboard-container">
       <div className="dashboard-card">
-        <h1>Welcome Back, Champion – Your Progress Starts Here!</h1>
+        <h1>Welcome Back to FitPulse!</h1>
         <p>
-          From reps to results, Fitness Tracker keeps you aligned and
-          accountable
+          Track your fitness journey, monitor progress, and achieve your goals with
+          our comprehensive workout tracking platform.
         </p>
 
         <div className="dashboard-tab-buttons">
           <button
-            onClick={() => setActiveTab("chart")}
+            onClick={() => handleTabChange("chart")}
             className={activeTab === "chart" ? "active" : ""}
           >
             Progress Chart
           </button>
           <button
-            onClick={() => setActiveTab("logger")}
+            onClick={() => handleTabChange("logger")}
             className={activeTab === "logger" ? "active" : ""}
           >
             Workout Logger
           </button>
           <button
-            onClick={() => setActiveTab("calories")}
+            onClick={() => handleTabChange("calories")}
             className={activeTab === "calories" ? "active" : ""}
           >
             Calorie Calculator
           </button>
           <button
-            onClick={() => setActiveTab("steps")}
+            onClick={() => handleTabChange("steps")}
             className={activeTab === "steps" ? "active" : ""}
           >
-            Steps Calculator
+            BMI & Steps Calculator
+          </button>
+          <button
+            onClick={() => handleTabChange("goals")}
+            className={activeTab === "goals" ? "active" : ""}
+          >
+            Set Goals
+          </button>
+          <button
+            onClick={() => handleTabChange("history")}
+            className={activeTab === "history" ? "active" : ""}
+          >
+            Workout History
           </button>
         </div>
 
@@ -302,6 +337,9 @@ const Dashboard = () => {
           )}
           {activeTab === "calories" && <CalorieCalculator />}
           {activeTab === "steps" && <StepsCalculator />}
+          {activeTab === "goals" && <GoalSetter />}
+          {activeTab === "history" && <WorkoutHistory />}
+          {activeTab === "profile" && <UserProfile />}
         </div>
       </div>
     </div>

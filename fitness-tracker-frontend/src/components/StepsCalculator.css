@@ -87,3 +87,61 @@
   color: #2c3e50;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
 }
+
+/* BMI Calculator Section */
+.bmi-section {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.bmi-section h3 {
+  font-size: 1.5rem;
+  color: #2d4059;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.bmi-result {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.bmi-result p {
+  margin: 0.5rem 0;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+/* Steps Calculator Section */
+.steps-section {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+.steps-section h3 {
+  font-size: 1.5rem;
+  color: #2d4059;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .steps-calculator {
+    padding: 1rem;
+  }
+
+  .form {
+    grid-template-columns: 1fr;
+  }
+
+  .bmi-section,
+  .steps-section {
+    padding: 1rem;
+  }
+}

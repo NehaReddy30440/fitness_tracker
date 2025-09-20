@@ -15,8 +15,17 @@ public class User {
     private String email;
     private String password;
 
+    // Profile fields
+    private int age;
+    private String gender; // "male", "female", "other"
+    private double weight; // in kg
+    private double height; // in cm
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<WorkoutLog> workoutLogs;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Goal> goals;
 
     // Constructors
     public User() {}
@@ -46,4 +55,19 @@ public class User {
     public void setWorkoutLogs(List<WorkoutLog> workoutLogs) {
         this.workoutLogs = workoutLogs;
     }
+
+    public int getAge() { return age; }
+    public void setAge(int age) { this.age = age; }
+
+    public String getGender() { return gender; }
+    public void setGender(String gender) { this.gender = gender; }
+
+    public double getWeight() { return weight; }
+    public void setWeight(double weight) { this.weight = weight; }
+
+    public double getHeight() { return height; }
+    public void setHeight(double height) { this.height = height; }
+
+    public List<Goal> getGoals() { return goals; }
+    public void setGoals(List<Goal> goals) { this.goals = goals; }
 }

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:5174")
 @RestController
 @RequestMapping("/api/workouts")
 public class WorkoutLogController {
@@ -38,7 +38,7 @@ public class WorkoutLogController {
     // Get all workouts for a specific user
     @GetMapping("/{email}")
     public List<WorkoutLog> getUserWorkouts(@PathVariable String email) {
-        List<WorkoutLog> workoutLogs = workoutLogRepo.findByUserEmail(email);
+        List<WorkoutLog> workoutLogs = workoutLogRepo.findByUserEmailWithExercises(email);
         workoutLogs.forEach(workoutLog -> workoutLog.setUser(null));  // Remove user object from the logs to avoid recursion
         return workoutLogs;
     }

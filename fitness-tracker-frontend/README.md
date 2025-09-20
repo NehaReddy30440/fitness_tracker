@@ -1,12 +1,67 @@
-# React + Vite
+# 💓 FitPulse - Your Fitness Journey
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+FitPulse is a comprehensive fitness tracking application built with React and Spring Boot that helps users monitor their workouts, track progress, and achieve their fitness goals.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **📊 Workout Tracking**: Log exercises with detailed information (sets, reps, weight, duration)
+- **📈 Progress Visualization**: Interactive charts showing workout progress over time
+- **🎯 Goal Setting**: Set and track fitness goals and milestones
+- **📝 Workout History**: Complete history of all logged workouts with exercise details
+- **💪 Exercise Library**: Pre-built exercise database with categories
+- **📱 Responsive Design**: Works seamlessly on desktop and mobile devices
+- **🔐 User Authentication**: Secure login and registration system
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Frontend
+- **React** - UI framework
+- **Vite** - Build tool and development server
+- **Chart.js** - Data visualization
+- **CSS3** - Styling
+
+### Backend
+- **Spring Boot** - Java framework
+- **Spring Data JPA** - Database access
+- **MySQL** - Database
+- **Spring Security** - Authentication
+
+## 🏃‍♂️ Getting Started
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd fitpulse
+   ```
+
+2. **Start the Backend**
+   ```bash
+   cd fitness-tracker-backend
+   mvn spring-boot:run
+   ```
+
+3. **Start the Frontend**
+   ```bash
+   cd fitness-tracker-frontend
+   npm install
+   npm run dev
+   ```
+
+4. **Open your browser**
+   Navigate to `http://localhost:5173`
+
+## 📱 Usage
+
+1. **Register** a new account or **Login** with existing credentials
+2. **Log Workouts** by adding exercises with sets, reps, and weights
+3. **View Progress** through interactive charts and statistics
+4. **Set Goals** to track your fitness objectives
+5. **Review History** to see your complete workout journey
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+
+This project is licensed under the MIT License.

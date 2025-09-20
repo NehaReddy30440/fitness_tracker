@@ -21,3 +21,55 @@
 .weekly-progress-chart canvas {
   max-width: 100%;
 }
+
+.chart-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 150px;
+}
+
+.control-group label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.control-group select {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 0.9rem;
+  min-width: 120px;
+  cursor: pointer;
+}
+
+.control-group select:focus {
+  outline: none;
+  border-color: #4bc0c0;
+  box-shadow: 0 0 0 2px rgba(75, 192, 192, 0.2);
+}
+
+@media (max-width: 768px) {
+  .chart-controls {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .control-group {
+    min-width: auto;
+    width: 100%;
+    max-width: 250px;
+  }
+}

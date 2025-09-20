@@ -2,6 +2,8 @@ package com.example.fitness.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "workout_logs")
@@ -21,6 +23,10 @@ public class WorkoutLog {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @OneToMany(mappedBy = "workoutLog", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<Exercise> exercises;
+
     // Getters and Setters
     public Long getId() { return id; }
 
@@ -38,4 +44,7 @@ public class WorkoutLog {
 
     public User getUser() { return user; }
     public void setUser(User user) { this.user = user; }
+
+    public List<Exercise> getExercises() { return exercises; }
+    public void setExercises(List<Exercise> exercises) { this.exercises = exercises; }
 }

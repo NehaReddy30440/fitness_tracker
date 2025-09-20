@@ -75,3 +75,240 @@
 .workout-form button:hover {
   background-color: #355acb;
 }
+
+/* Enhanced styles for new workout logger features */
+.workout-header {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.workout-header .form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.exercise-input {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.exercise-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.exercise-row input,
+.exercise-row select {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.add-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.add-btn:hover {
+  background-color: #45a049;
+}
+
+.exercises-list {
+  margin-top: 1.5rem;
+}
+
+.exercises-list h4 {
+  color: #2d4059;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.exercises-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.exercise-item {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.75rem;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.exercise-item span {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.remove-btn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.remove-btn:hover {
+  background-color: #d32f2f;
+}
+
+.workout-summary {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.workout-summary p {
+  margin: 0.5rem 0;
+  font-weight: 500;
+  color: #2d4059;
+}
+
+.submit-btn {
+  background-color: #4169e1;
+  color: white;
+  border: none;
+  padding: 0.9rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.submit-btn:hover {
+  background-color: #355acb;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .workout-logger {
+    padding: 1rem;
+  }
+
+  .workout-header {
+    flex-direction: column;
+  }
+
+  .exercise-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .exercise-name-input,
+  .small-input {
+    width: 100%;
+  }
+
+  .exercise-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .exercise-item span {
+    width: 100%;
+  }
+}
+
+
+.exercise-input-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.exercise-input-header h4 {
+  margin: 0;
+  color: #2d4059;
+  font-size: 1.2rem;
+}
+
+.library-toggle-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid #4bc0c0;
+  background: #f8f9fa;
+  color: #4bc0c0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.library-toggle-btn:hover {
+  background: #4bc0c0;
+  color: white;
+  transform: translateY(-1px);
+}
+
+.exercise-library-section {
+  margin-bottom: 1.5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.exercise-name-group {
+  grid-column: 1;
+}
+
+.exercise-name-input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.small-input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.exercise-notes {
+  margin-top: 0.5rem;
+}
+
+.exercise-notes textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  resize: vertical;
+  min-height: 40px;
+}
+
+.exercise-notes textarea:focus {
+  outline: none;
+  border-color: #4bc0c0;
+  box-shadow: 0 0 0 2px rgba(75, 192, 192, 0.2);
+}
+

@@ -23,7 +23,15 @@
 }
 
 .logo {
-  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
   width: auto;
 }
 
@@ -58,4 +66,126 @@
 
 .logout:hover {
   background-color: #d64545;
+}
+
+/* Profile Dropdown Styles */
+.profile-section {
+  position: relative;
+}
+
+.profile-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #5dade2;
+  border: none;
+  padding: 0.55rem 1.1rem;
+  border-radius: 10px;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 1.05rem;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(90, 173, 226, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.profile-btn:hover {
+  background-color: #3498db;
+  transform: translate(-3%, -2%);
+  box-shadow: 0.6rem 0.8rem rgba(90, 173, 226, 0.3);
+}
+
+.profile-icon {
+  font-size: 1.2rem;
+}
+
+.profile-text {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .profile-text {
+    display: inline;
+  }
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(180, 210, 230, 0.4);
+  min-width: 180px;
+  z-index: 1001;
+  margin-top: 0.5rem;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  color: #333;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+  border-radius: 8px;
+  margin: 0.25rem;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(93, 173, 226, 0.1);
+}
+
+.dropdown-item:first-child {
+  margin-top: 0.5rem;
+}
+
+.dropdown-item:last-child {
+  margin-bottom: 0.5rem;
+}
+
+.item-icon {
+  font-size: 1.1rem;
+  width: 20px;
+  text-align: center;
+}
+
+.logout-item {
+  color: #e57373;
+}
+
+.logout-item:hover {
+  background-color: rgba(229, 115, 115, 0.1);
+  color: #d64545;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 767px) {
+  .navbar {
+    padding: 0.7rem 1rem;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .profile-dropdown {
+    right: -1rem;
+    min-width: 160px;
+  }
+
+  .dropdown-item {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.9rem;
+  }
 }

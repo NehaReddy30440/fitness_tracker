@@ -1,0 +1,224 @@
+.goal-setter {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  position: relative;
+}
+
+.goal-setter::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 70% 80%, rgba(255, 119, 198, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.goal-setter h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 2.2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.goal-form {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 2.5rem;
+  border-radius: 20px;
+  margin-bottom: 3rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 1;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.form-row select,
+.form-row input {
+  flex: 1;
+  min-width: 200px;
+  padding: 14px 16px;
+  border: 2px solid rgba(102, 126, 234, 0.2);
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  background: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-row select:focus,
+.form-row input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  transform: translateY(-1px);
+}
+
+.form-row input[type="date"] {
+  flex: 1;
+}
+
+.add-goal-btn {
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  color: white;
+  padding: 16px 32px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  width: 100%;
+  margin-top: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+}
+
+.add-goal-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.6);
+}
+
+.goals-list h4 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: #2d4059;
+  margin-bottom: 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.goals-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.goal-item {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.goal-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.2);
+}
+
+.goal-item.achieved {
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(69, 160, 73, 0.1) 100%);
+  border-color: rgba(76, 175, 80, 0.3);
+  box-shadow: 0 20px 60px rgba(76, 175, 80, 0.2);
+}
+
+.goal-content h5 {
+  margin: 0 0 1rem 0;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #2d4059;
+}
+
+.goal-content p {
+  margin: 0.5rem 0;
+  color: #718096;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.goal-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.achieve-btn,
+.delete-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.achieve-btn {
+  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+  color: white;
+}
+
+.achieve-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(33, 150, 243, 0.4);
+}
+
+.achieve-btn.unachieve {
+  background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
+}
+
+.achieve-btn.unachieve:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 152, 0, 0.4);
+}
+
+.delete-btn {
+  background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+  color: white;
+}
+
+.delete-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(244, 67, 54, 0.4);
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+  }
+
+  .form-row select,
+  .form-row input {
+    min-width: auto;
+  }
+
+  .goal-actions {
+    flex-direction: column;
+  }
+}
