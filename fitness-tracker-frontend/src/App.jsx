@@ -34,6 +34,15 @@ function App() {
     checkAuthStatus();
   }, []);
 
+  // Handle GitHub Pages redirect
+  useEffect(() => {
+    const { pathname } = window.location;
+    if (pathname.startsWith('/?/')) {
+      const path = pathname.replace('/?/', '/');
+      window.history.replaceState(null, '', path);
+    }
+  }, []);
+
   // Show loading while checking authentication
   if (isLoading) {
     return (

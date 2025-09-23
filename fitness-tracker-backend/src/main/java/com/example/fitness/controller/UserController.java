@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "http://localhost:5174")
+@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:5174"})
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
@@ -67,16 +67,16 @@ public class UserController {
         if (profileUpdate.getName() != null) {
             user.setName(profileUpdate.getName());
         }
-        if (profileUpdate.getAge() > 0) {
+        if (profileUpdate.getAge() != null && profileUpdate.getAge() > 0) {
             user.setAge(profileUpdate.getAge());
         }
         if (profileUpdate.getGender() != null) {
             user.setGender(profileUpdate.getGender());
         }
-        if (profileUpdate.getWeight() > 0) {
+        if (profileUpdate.getWeight() != null && profileUpdate.getWeight() > 0) {
             user.setWeight(profileUpdate.getWeight());
         }
-        if (profileUpdate.getHeight() > 0) {
+        if (profileUpdate.getHeight() != null && profileUpdate.getHeight() > 0) {
             user.setHeight(profileUpdate.getHeight());
         }
 

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:5174")
+@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:5174"})
 @RestController
 @RequestMapping("/api/workouts")
 public class WorkoutLogController {

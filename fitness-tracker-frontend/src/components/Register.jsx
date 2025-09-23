@@ -7,6 +7,10 @@ const Register = ({ setIsLoggedIn }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [age, setAge] = useState('');
+  const [gender, setGender] = useState('');
+  const [weight, setWeight] = useState('');
+  const [height, setHeight] = useState('');
   const [message, setMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
@@ -16,8 +20,17 @@ const Register = ({ setIsLoggedIn }) => {
     setIsLoading(true);
 
     try {
+      // Prepare user data
+      const userData = { name, email, password };
+      
+      // Add optional profile fields if provided
+      if (age) userData.age = parseInt(age);
+      if (gender) userData.gender = gender;
+      if (weight) userData.weight = parseFloat(weight);
+      if (height) userData.height = parseFloat(height);
+
       // Register the user
-      await api.post('/users/register', { name, email, password });
+      await api.post('/users/register', userData);
 
       // Automatically log in the user after successful registration
       const loginRes = await api.post('/users/login', { email, password });
